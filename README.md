@@ -11,7 +11,7 @@ or
 
 yarn install
 
-## or any of your preferred package manager
+or any of your preferred package manager
 
 3. Start the server locally by
 
