@@ -1,4 +1,4 @@
-import { Context, useContext } from "react";
+import { Context, useContext, useState } from "react";
 import { TodoType } from "../../configs/todo";
 import EditIcon from "../Icons/EditIcon";
 import DeleteIcon from "../Icons/DeleteIcon";
@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import { AddFormContext, AddFormContextType } from "../../App";
 import { setDataToLocalStorage } from "../../utils/localStorage";
 import { toast } from "react-toastify";
+import DeleteConfirmationModal from "./DeleteConfirmationModal";
 
 interface TodoProps {
   todo: TodoType;
@@ -17,6 +18,8 @@ const Todo: React.FC<TodoProps> = (props) => {
   const { setTodos, todos } = useContext<AddFormContextType>(
     AddFormContext as Context<AddFormContextType>
   );
+
+  const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
 
   const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked || !event.target.checked) {
@@ -52,6 +55,11 @@ const Todo: React.FC<TodoProps> = (props) => {
 
   return (
     <>
+      <DeleteConfirmationModal
+        openModal={openDeleteModal}
+        setOpenModal={setOpenDeleteModal}
+        handleDelete={handleDelete}
+      />
       <div className="flex items-center justify-between ">
         <div className="space-x-2 flex items-center cursor-pointer w-full">
           <input
@@ -80,7 +88,7 @@ const Todo: React.FC<TodoProps> = (props) => {
           </Button>
           <Button
             type="button"
-            onClick={handleDelete}
+            onClick={() => setOpenDeleteModal(true)}
             className="border-0 shadow-none !px-0"
           >
             {" "}

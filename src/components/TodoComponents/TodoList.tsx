@@ -6,7 +6,9 @@ import { AddFormContext, AddFormContextType } from "../../App";
 
 const TodoList: React.FC = () => {
   const [selectedData, setSelectedData] = useState<TodoType | null>(null);
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState<boolean>(() =>
+    selectedData ? true : false
+  );
 
   const { filter, searchValue, todos } = useContext<AddFormContextType>(
     AddFormContext as Context<AddFormContextType>
@@ -32,10 +34,16 @@ const TodoList: React.FC = () => {
     }
   }, [searchValue, filter, todos]);
 
+  useEffect(() => {
+    if (selectedData) {
+      setOpenModal(true);
+    }
+  }, [selectedData]);
+
   return (
     <>
       <AddTodoForm
-        openModal={selectedData ? true : false}
+        openModal={openModal}
         setOpenModal={setOpenModal}
         type="edit"
         selectedData={selectedData as TodoType}
