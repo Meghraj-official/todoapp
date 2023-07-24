@@ -1,7 +1,5 @@
 import { Context, useContext } from "react";
 import { AddFormContext, AddFormContextType } from "../../App";
-import { getDataFromLocalStorage } from "../../utils/localStorage";
-import { TodoType } from "../../configs/todo";
 
 const FilterOptions = () => {
   const { setFilter } = useContext<AddFormContextType>(
