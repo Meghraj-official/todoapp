@@ -42,8 +42,8 @@ const TodoList: React.FC = () => {
         setSelectedData={setSelectedData}
       />
 
-      <div className="grid place-items-center mt-4 px-4">
-        <div className="bg-white border border-gray-200 min-w-[365px] space-y-4 max-w-3xl w-full p-4 rounded-lg shadow-md">
+      <div className="grid place-items-center mt-4 px-2 sm:px-4">
+        <div className="bg-white border border-gray-200 min-w-[300px] space-y-4 max-w-3xl w-full  p-4 rounded-lg shadow-md">
           {filteredTodos && !filteredTodos[0] ? (
             <div className="h-16 grid place-items-center text-xl font-bold">
               No todos found

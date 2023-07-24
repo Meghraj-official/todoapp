@@ -21,13 +21,17 @@ const Header: React.FC = () => {
         <div className="max-w-7xl px-4 md:px-10 xl:px-0 mx-auto py-4 flex justify-between items-center">
           <h1 className="text-lg font-bold">Todo List</h1>
 
-          <div className="space-x-4 flex">
+          <div className="space-x-4 md:flex hidden ">
             <FilterOptions />
             <SearchBar />
           </div>
           <Button type="button" onClick={handleAddTodo} className="">
             Add Todo
           </Button>
+        </div>
+        <div className="space-x-4 flex md:hidden px-4 py-4">
+          <FilterOptions />
+          <SearchBar />
         </div>
       </div>
     </>

@@ -17,7 +17,7 @@ const FilterOptions = () => {
   };
 
   return (
-    <div className="text-gray-600 min-w-32">
+    <div className="text-gray-600">
       <select
         name="filter"
         id="filter"
