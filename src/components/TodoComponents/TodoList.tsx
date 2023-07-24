@@ -35,7 +35,7 @@ const TodoList: React.FC = () => {
   return (
     <>
       <AddTodoForm
-        openModal={selectedData ? true : openModal}
+        openModal={selectedData ? true : false}
         setOpenModal={setOpenModal}
         type="edit"
         selectedData={selectedData as TodoType}
